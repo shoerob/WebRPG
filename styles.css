@@ -1,0 +1,18 @@
+body {
+	margin: 9px 9px 0 9px;
+	padding:0;
+}
+
+#container {
+	background-color: white;
+}
+
+#left {
+	float: left;
+	width: 620px;
+}
+
+#right {
+	float: left;
+	width: 300px;
+}

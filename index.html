@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>Web Game</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="http://localhost:8081/socket.io/socket.io.js"></script>
+	<script src="engine.js"></script>
+</head>
+<body onload="setup();" onkeydown="onKeyDown(event);" onkeyup="onKeyUp(event);">
+	<div id="container">
+		<div id="left">
+			<canvas id="game" width="640" height="480"></canvas>
+		</div>
+		<div id="right">
+			<p>Updates...</p>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+function setup() {
+	var engine = new Engine(document.getElementById('game'));
+	engine.start();
+}
+</script>
+</html>
