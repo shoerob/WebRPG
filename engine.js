@@ -5,6 +5,8 @@ var ctx;
 var map = [];
 var players = [];
 
+var tileSize = 16;
+
 /// Player
 var Player = function(data) {
 	this.id = data.id;
@@ -70,30 +72,30 @@ Engine.prototype.render = function() {
 	ctx.clearRect(0,0,640,480);
 
 	// render map
-	for (var i = 0; i < map.length; i++) {
-		for (var j = 0; j < map[i].length; j++) {
-			if (map[i][j] == 0)
+	for (var i = 0; i < map.map.length; i++) {
+		for (var j = 0; j < map.map[i].length; j++) {
+			if (map.map[i][j] == 0)
 				ctx.fillStyle = "rgb(200,200,200)";
 				
-			if (map[i][j] == 1)
+			if (map.map[i][j] == 1)
 				ctx.fillStyle = "rgb(200,0,0)";
 
-			if (map[i][j] == 2)
+			if (map.map[i][j] == 2)
 				ctx.fillStyle = "rgb(200,200,0)";
 
-			ctx.fillRect (j * 51, i * 51, 50, 50);
+			ctx.fillRect (j * tileSize, i * tileSize, tileSize, tileSize);
 		}
 	}
 
 	// render character
 	ctx.fillStyle = "rgb(0,200,0)";
-	ctx.fillRect (charX * 51, charY * 51, 50, 50);
+	ctx.fillRect (charX * tileSize, charY * tileSize, tileSize, tileSize);
 
 	// render peers
 	for (var i = 0; i < players.length; i++) {
 		var player = players[i];
 		ctx.fillStyle = "rgb(0,200,0)";
-		ctx.fillRect (player.xPos * 51, player.yPos * 51, 50, 50);
+		ctx.fillRect (player.xPos * tileSize, player.yPos * tileSize, tileSize, tileSize);
 	}
 }
 

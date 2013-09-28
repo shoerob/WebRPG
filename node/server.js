@@ -2,7 +2,7 @@ var io = require('socket.io').listen(8081);
 var fs = require('fs');
 
 // /// map
- var map = [];
+ var map;
 
 fs.readFile( __dirname + '/maps/map1.json', 'utf8', function(err, data) {
 		if (err) {
@@ -42,22 +42,22 @@ Player.prototype.createKeyDownCallback = function(player) {
 
 		switch(data.keyCode) {
 			case 37: // left
-				if (player.xPos > 0 && map[player.yPos][player.xPos - 1] != 0)
+				if (player.xPos > 0 && map.map[player.yPos][player.xPos - 1] != 0)
 					player.xPos--;
 			break;
 			
 			case 38: // up
-				if (player.yPos > 0 && map[player.yPos - 1][player.xPos] != 0)
+				if (player.yPos > 0 && map.map[player.yPos - 1][player.xPos] != 0)
 					player.yPos--;
 			break;
 			
 			case 39: // right
-				if (player.xPos < map[player.yPos].length - 1 && map[player.yPos][player.xPos + 1] != 0)
+				if (player.xPos < map.map[player.yPos].length - 1 && map.map[player.yPos][player.xPos + 1] != 0)
 					player.xPos++;
 			break;
 			
 			case 40: // down
-				if (player.yPos < map.length - 1 && map[player.yPos + 1][player.xPos] != 0)
+				if (player.yPos < map.map.length - 1 && map.map[player.yPos + 1][player.xPos] != 0)
 					player.yPos++;
 			break;
 				
